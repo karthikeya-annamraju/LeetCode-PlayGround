@@ -12,7 +12,6 @@ public:
         for (auto it = mp.begin(); it != mp.end(); it++) {
             pq.push(make_pair(it->second, it->first));
         }
-        mp.clear();
         // pushing vals to ans
         int i = 0;
         while (i!=k) {
