@@ -1,23 +1,25 @@
 class Solution {
 public:
     int maxDifference(string s) {
-        unordered_map<char, int>mp;
-        for (auto i: s) {
-            mp[i]++;
+        int freq[26] = {0};  
+    
+        for (char c : s) {
+            freq[c - 'a']++;
         }
 
-        // iterate thru map to find the max odd
-        // and least even
-        int max = INT_MIN;
-        int min = INT_MAX;
-        for (auto it = mp.begin(); it != mp.end(); it++) {
-            if (it->second % 2 != 0 && it->second > max) {
-                max = it->second;
-            }
-            if (it->second % 2 == 0 && it->second < min) {
-                min = it->second;
+        int maxOdd = 0;
+        int minEven = INT_MAX;
+
+        for (int i = 0; i < 26; ++i) {
+            if (freq[i] > 0) {  
+                if (freq[i] % 2 != 0 && freq[i] > maxOdd) {
+                    maxOdd = freq[i];
+                }
+                if (freq[i] % 2 == 0 && freq[i] < minEven) {
+                    minEven = freq[i];
+                }
             }
         }
-        return max-min;
+        return maxOdd - minEven;
     }
 };
