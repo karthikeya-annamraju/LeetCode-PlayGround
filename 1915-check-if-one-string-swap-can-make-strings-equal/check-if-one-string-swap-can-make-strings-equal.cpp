@@ -12,9 +12,7 @@ public:
             }
         }
         if (cnt != 2) return false;
-        cout << indices[0] << indices[1] << endl;
         swap(s2[indices[0]], s2[indices[1]]);
-        cout << s1 << endl << s2;
         return s1 == s2;
     }
 };
