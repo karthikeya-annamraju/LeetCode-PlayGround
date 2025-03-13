@@ -5,11 +5,7 @@ public:
         vector<int>v;
         for (auto i: nums) {
             mp[i]++;
-        }
-        for (auto it = mp.begin(); it != mp.end(); it++) {
-            if (it->second == 2) {
-                v.push_back(it->first);
-            }
+            if (mp[i] > 1) v.push_back(i);
         }
         return v;
     }
