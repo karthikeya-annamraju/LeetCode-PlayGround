@@ -27,7 +27,6 @@ public:
                 else if (st.empty() or st.top() != '{') return false;
             }
         }
-        if (!st.empty())return false;
-        else return true;
+        return (!st.empty()) ? false : true;
     }
 };
